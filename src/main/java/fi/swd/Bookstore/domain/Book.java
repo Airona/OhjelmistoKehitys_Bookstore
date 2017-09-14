@@ -5,12 +5,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Book {
+	@JsonIgnore
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	
 	private String title,author,year,isbn;
 	private double price;
 	public Book() {
