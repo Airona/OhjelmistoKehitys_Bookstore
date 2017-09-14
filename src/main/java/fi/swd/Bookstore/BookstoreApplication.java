@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import fi.swd.Bookstore.domain.Book;
+import fi.swd.Bookstore.domain.BookRepository;
 
 @SpringBootApplication
 public class BookstoreApplication {

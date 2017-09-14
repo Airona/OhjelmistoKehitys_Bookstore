@@ -1,14 +1,17 @@
 package fi.swd.Bookstore.web;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import fi.swd.Bookstore.BookRepository;
 import fi.swd.Bookstore.domain.Book;
+import fi.swd.Bookstore.domain.BookRepository;
 
 @Controller
 public class BookController {
@@ -49,6 +52,18 @@ public class BookController {
 	public String editBook(@PathVariable("id") Long bookId, Model model) {
 		model.addAttribute("book", repository.findOne(bookId));
 		return "editbook";
+	}
+	
+	
+//Rest methods
+	@RequestMapping(value = "/books", method = RequestMethod.GET)
+	public @ResponseBody List<Book> booklistJson() {
+		return (List<Book>) repository.findAll();
+	}
+	
+	@RequestMapping (value = "/book/{id}", method = RequestMethod.GET)
+	public @ResponseBody Book getBookJson(@PathVariable("id") Long bookId) {
+		return repository.findOne(bookId);
 	}
 	
 }
