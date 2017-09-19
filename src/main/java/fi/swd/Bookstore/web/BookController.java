@@ -19,6 +19,11 @@ public class BookController {
 	@Autowired
 	private BookRepository repository;
 	
+    @RequestMapping(value="/login")
+    public String login() {	
+        return "login";
+    }
+	
 	@RequestMapping(value = {"", "/", "/index"}, method = RequestMethod.GET)
 	public String bookStoreIndex(Model model) {
 		return "/index";
