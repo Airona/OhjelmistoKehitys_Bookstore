@@ -9,14 +9,18 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import fi.swd.Bookstore.web.UserDetailServiceImpl;
 
 @Configuration
 //@EnableGlobalMethodSecurity(prePostEnabled = true)
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-//    @Autowired
-//    private UserDetailServiceImpl userDetailsService;	
-//	
+    
+	@Autowired
+    private UserDetailServiceImpl userDetailsService;	
+	
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -39,12 +43,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-    	auth
-    		.inMemoryAuthentication()
-    			.withUser("user").password("pwd").roles("USER");
-    	auth
-		.inMemoryAuthentication()
-			.withUser("admin").password("adminpwd").roles("ADMIN");
-    	//        auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
+//    	auth
+//    		.inMemoryAuthentication()
+//    			.withUser("user").password("userpw").roles("USER");
+//    	auth
+//		.inMemoryAuthentication()
+//			.withUser("admin").password("adminpw").roles("ADMIN");
+    	auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
     }
 }
