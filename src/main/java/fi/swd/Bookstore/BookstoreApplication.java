@@ -36,28 +36,28 @@ public class BookstoreApplication {
 			repository.save(new Book("Matematiikka","Kiva","2002","0-2",5));
 			repository.save(new Book("Ohjelmointi","Osaaja","2003","0-3",10));
 						
-			// fetch all books
-			log.info("Books found with findAll():");
-			log.info("-------------------------------");
-			for (Book book : repository.findAll()) {
-				log.info(book.toString());
-			}
-			log.info("");
-
-			// fetch an individual book by ID
-			Book book = repository.findOne(1L);
-			log.info("Book found with findOne(1L):");
-			log.info("--------------------------------");
-			log.info(book.toString());
-			log.info("");
-
-			// fetch books by title
-			log.info("Book found with findByTitle('Kijrannimi'):");
-			log.info("--------------------------------------------");
-			for (Book bauer : repository.findByTitle("Kijrannimi")) {
-				log.info(bauer.toString());
-			}
-			log.info("");
+//			// fetch all books
+//			log.info("Books found with findAll():");
+//			log.info("-------------------------------");
+//			for (Book book : repository.findAll()) {
+//				log.info(book.toString());
+//			}
+//			log.info("");
+//
+//			// fetch an individual book by ID
+//			Book book = repository.findOne(1L);
+//			log.info("Book found with findOne(1L):");
+//			log.info("--------------------------------");
+//			log.info(book.toString());
+//			log.info("");
+//
+//			// fetch books by title
+//			log.info("Book found with findByTitle('Kijrannimi'):");
+//			log.info("--------------------------------------------");
+//			for (Book bauer : repository.findByTitle("Kijrannimi")) {
+//				log.info(bauer.toString());
+//			}
+//			log.info("");
 		};
 	}
 	
