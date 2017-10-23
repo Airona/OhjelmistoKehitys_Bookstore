@@ -25,7 +25,7 @@ public class BookController {
     public String login() {	
         return "login";
     }
-	
+    //@RequestMapping(value = {"", "/", "/index.html", "index"}, method = RequestMethod.GET)
 	@RequestMapping(value = {"", "/"}, method = RequestMethod.GET)
 	public String bookStoreIndex(Model model) {
 		return "/index";
@@ -73,5 +73,5 @@ public class BookController {
 	public @ResponseBody Book getBookJson(@PathVariable("id") Long bookId) {
 		return repository.findOne(bookId);
 	}
-	
+
 }
