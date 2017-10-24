@@ -48,9 +48,9 @@ class App extends React.Component {
   
   render() {
     return (
-       <div>
-          <BookForm createBook={this.createBook}/>
+       <div className="text-center">
           <BookTable deleteBook={this.deleteBook} books={this.state.books}/> 
+          <BookForm createBook={this.createBook}/>
        </div>
     );
   }
@@ -68,7 +68,7 @@ class BookTable extends React.Component {
 
     return (
       <div>
-      <table className="table table-striped">
+      <table className="table">
         <thead>
           <tr>
             <th>Title</th><th>Author</th><th>Year</th><th>ISBN</th><th></th>
@@ -98,7 +98,7 @@ class Book extends React.Component {
             <td>{this.props.book.year}</td>
             <td>{this.props.book.isbn}</td>
             <td>
-                <button className="btn btn-danger" onClick={this.deleteBook}>Delete</button>
+                <button className="btn" onClick={this.deleteBook}>Delete</button>
             </td>
           </tr>
         );
@@ -127,29 +127,13 @@ class BookForm extends React.Component {
     
     render() {
         return (
-            <div className="panel panel-default">
-                <div className="panel-heading">Create book</div>
-                <div className="panel-body">
-                <form className="form-inline">
-                    <div className="col-md-2">
-                        <input type="text" placeholder="Title" className="form-control"  name="title" onChange={this.handleChange}/>    
-                    </div>
-                    <div className="col-md-2">       
-                        <input type="text" placeholder="Author" className="form-control" name="author" onChange={this.handleChange}/>
-                    </div>
-                    <div className="col-md-2">
-                        <input type="text" placeholder="Year" className="form-control" name="year" onChange={this.handleChange}/>
-                    </div>
-					<div className="col-md-2">
-                        <input type="text" placeholder="ISBN" className="form-control" name="isbn" onChange={this.handleChange}/>
-                    </div>
-                    <div className="col-md-2">
-                        <button className="btn btn-success" onClick={this.handleSubmit}>Save</button>   
-                    </div>        
+				<form className="form-inline">
+                        <input type="text" placeholder="Title" className="form-control"  name="title" onChange={this.handleChange}/><br />
+                        <input type="text" placeholder="Author" className="form-control" name="author" onChange={this.handleChange}/><br />
+                        <input type="text" placeholder="Year" className="form-control" name="year" onChange={this.handleChange}/><br />
+                        <input type="text" placeholder="ISBN" className="form-control" name="isbn" onChange={this.handleChange}/><br />
+                        <button className="btn" onClick={this.handleSubmit}>Save</button>      
                 </form>
-                </div>      
-            </div>
-         
         );
     }
 }
